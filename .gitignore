@@ -13,4 +13,4 @@ resources/sass/.sass-cache/
 resources/.arch-internal-preview.css
 .arch-internal-preview.css
 node_modules/
-keycloak_theme/themes/ssegning-tw-01/node_modules/
+/themes/ssegning-tw-01/node_modules/
