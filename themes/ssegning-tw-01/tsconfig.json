@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./data/common/resources",
+    "baseUrl": "./",
+    "allowJs": true,
+    "declaration": false,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*",
+    "types.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "data"
+  ]
+}

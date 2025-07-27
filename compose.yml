@@ -1,0 +1,23 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.2.5
+    command:
+      - "start-dev"
+      - "--import-realm"
+      - "--spi-theme-static-max-age=-1"
+      - "--spi-theme-cache-themes=false"
+      - "--spi-theme-cache-templates=false"
+    restart: unless-stopped
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      KC_LOG_CONSOLE_COLOR: 'true'
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./.docker/keycloak-config/:/opt/keycloak/data/import/:ro
+      - ./themes/ssegning-tw-01/data:/opt/keycloak/themes/ssegning-tw-01:ro
+      - ./themes/vymalo-01/data:/opt/keycloak/themes/vymalo-01:ro
+      - ./themes/vymalo-02/data:/opt/keycloak/themes/vymalo-02:ro
+      - ./themes/vaam-01/data:/opt/keycloak/themes/vaam-01:ro
+      #- ./build/:/opt/keycloak/providers/

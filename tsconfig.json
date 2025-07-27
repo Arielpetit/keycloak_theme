@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "themes/ssegning-tw-01"
+    },
+    {
+      "path": "themes/vymalo-01"
+    },
+    {
+      "path": "themes/vymalo-02"
+    },
+    {
+      "path": "themes/vaam-01"
+    },
+  ]
+}

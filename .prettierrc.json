@@ -1,0 +1,20 @@
+{
+    "printWidth": 90,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "overrides": [
+        {
+            "files": [
+                "themes/**/src/**/*.{ts,tsx,scss,css,md,json}"
+            ],
+            "options": {
+                "printWidth": 150
+            }
+        }
+    ]
+}

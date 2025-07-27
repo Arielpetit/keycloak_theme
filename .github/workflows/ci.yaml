@@ -1,0 +1,99 @@
+name: Build and deploy theme
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      package_version: ${{ steps.package_version.outputs.to_version }}
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - id: package_version
+        run: echo "to_version=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        name: Get short sha
+
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.head_commit.author.name != 'actions'
+    strategy:
+      matrix:
+        chart:
+          - ssegning-tw-01
+          - vymalo-01
+          - vymalo-02
+          - vaam-01
+    defaults:
+      run:
+        working-directory: ./themes/${{matrix.chart}}
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@v4
+        name: Setup node
+        with:
+          node-version: "22"
+          cache: yarn
+          cache-dependency-path: ./themes/${{matrix.chart}}/yarn.lock
+
+      - run: yarn install --immutable
+        name: Install dependencies
+
+      - run: yarn build
+        name: Build packages
+
+      - run: chmod +x ../../package.sh && ../../package.sh ${{matrix.chart}}
+        name: Package theme
+
+      - uses: actions/upload-artifact@v4
+        name: Upload artifact
+        with:
+          name: standalone_keycloak_theme-${{matrix.chart}}
+          path: ./themes/${{matrix.chart}}/build/theme-${{matrix.chart}}.jar
+
+  create_github_release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - version
+    # We create a release only if the version have been upgraded and we are on a default branch
+    # PR on the default branch can release beta but not real release
+    if: github.event_name == 'push'
+    steps:
+      - run: mkdir jars
+        name: Create jars directory
+
+      - uses: actions/download-artifact@v4
+        name: Download artifact
+        with:
+          path: .
+      
+      - run: tree
+        name: "testings..."
+
+      - run: mv **/*.jar jars/
+        name: Move jars to directory
+
+      - uses: softprops/action-gh-release@v2
+        name: Create GitHub release
+        with:
+          name: Release ${{ needs.version.outputs.package_version }}
+          tag_name: v${{ needs.version.outputs.package_version }}
+          target_commitish: ${{ github.head_ref || github.ref }}
+          generate_release_notes: true
+          files: |
+            jars/*.jar
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

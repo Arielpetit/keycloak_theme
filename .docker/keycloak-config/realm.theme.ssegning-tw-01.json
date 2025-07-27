@@ -1,0 +1,65 @@
+{
+  "id": "ssegning-tw-01",
+  "realm": "ssegning-tw-01",
+  "displayName": "SSegning TW 01",
+  "displayNameHtml": "<b>SSegning</b> TW 01",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": true,
+  "rememberMe": true,
+  "loginWithEmailAllowed": true,
+  "resetPasswordAllowed": true,
+  "enabled": true,
+  "loginTheme": "ssegning-tw-01",
+  "identityProviders": [
+    {
+      "alias": "facebook",
+      "displayName": "Facebook",
+      "providerId": "facebook",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    },
+    {
+      "alias": "gitlab",
+      "displayName": "Gitlab",
+      "providerId": "gitlab",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    },
+    {
+      "alias": "google",
+      "displayName": "Google",
+      "providerId": "google",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    }
+  ],
+  "users": [
+    {
+      "email": "${KEYCLOAK_ADMIN}@admin.com",
+      "username": "${KEYCLOAK_ADMIN}",
+      "firstName": "DevOps",
+      "lastName": "SRE",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "${KEYCLOAK_ADMIN_PASSWORD}"
+        }
+      ]
+    }
+  ]
+}

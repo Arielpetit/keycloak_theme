@@ -1,0 +1,44 @@
+{
+  "name": "ssegning-tw-01",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/feather-icons": "^4.29.4",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "@vymalo/ui-preset": "1.0.7",
+    "autoprefixer": "^10.4.19",
+    "copy-webpack-plugin": "^12.0.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "eslint": "8",
+    "eslint-config-next": "^15.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "html-loader": "^5.1.0",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "prettier": "^3.4.2",
+    "sass": "^1.77.2",
+    "sass-loader": "^16.0.4",
+    "tailwindcss": "3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "build": "cross-env webpack"
+  },
+  "packageManager": "yarn@4.7.0",
+  "dependencies": {
+    "feather-icons": "^4.29.2"
+  },
+  "resolutions": {
+    "tailwindcss": "3"
+  }
+}

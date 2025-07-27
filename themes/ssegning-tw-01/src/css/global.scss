@@ -1,0 +1,655 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DGRV Theme Variables */
+:root {
+  /* Light Mode Colors */
+  --dgrv-primary-bg: #FFFFFF;
+  --dgrv-secondary-bg: #F0F8FF;
+  --dgrv-primary-text: #1E293B;
+  --dgrv-secondary-text: #64748B;
+  --dgrv-accent-blue: #1E40AF;
+  --dgrv-border: #E2E8F0;
+  --dgrv-input-bg: #FFFFFF;
+  --dgrv-error: #EF4444;
+  --dgrv-success: #10B981;
+  --dgrv-focus-ring: rgba(30, 64, 175, 0.2);
+  --dgrv-link-color: #1E40AF;
+  
+  /* Dark Mode Colors */
+  --dgrv-dark-primary-bg: #0F172A;
+  --dgrv-dark-secondary-bg: #1E293B;
+  --dgrv-dark-primary-text: #F8FAFC;
+  --dgrv-dark-secondary-text: #CBD5E1;
+  --dgrv-dark-accent-blue: #3B82F6;
+  --dgrv-dark-border: #334155;
+  --dgrv-dark-input-bg: #1E293B;
+  --dgrv-dark-error: #F87171;
+  --dgrv-dark-success: #34D399;
+  --dgrv-dark-focus-ring: rgba(59, 130, 246, 0.2);
+  --dgrv-dark-link-color: #3B82F6;
+}
+
+/* Dark mode class */
+.dark {
+  --dgrv-primary-bg: var(--dgrv-dark-primary-bg);
+  --dgrv-secondary-bg: var(--dgrv-dark-secondary-bg);
+  --dgrv-primary-text: var(--dgrv-dark-primary-text);
+  --dgrv-secondary-text: var(--dgrv-dark-secondary-text);
+  --dgrv-accent-blue: var(--dgrv-dark-accent-blue);
+  --dgrv-border: var(--dgrv-dark-border);
+  --dgrv-input-bg: var(--dgrv-dark-input-bg);
+  --dgrv-error: var(--dgrv-dark-error);
+  --dgrv-success: var(--dgrv-dark-success);
+  --dgrv-focus-ring: var(--dgrv-dark-focus-ring);
+  --dgrv-link-color: var(--dgrv-dark-link-color);
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #F0F8FF;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Main container */
+#kc-header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background: #F0F8FF;
+}
+
+/* Login card */
+#kc-content {
+  background: var(--dgrv-primary-bg);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 520px;
+  padding: 3rem;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid var(--dgrv-border);
+}
+
+@media (max-width: 768px) {
+  #kc-content {
+    max-width: 95%;
+    padding: 2rem;
+  }
+}
+
+/* Logo styling */
+#kc-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#kc-logo img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Brand text */
+.brand-text {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dgrv-accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+.brand-tagline {
+  font-size: 1rem;
+  color: var(--dgrv-secondary-text);
+  font-weight: 400;
+}
+
+/* Page title */
+#kc-page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dgrv-primary-text);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+/* Subtitle */
+#kc-page-title + p,
+.login-subtitle {
+  font-size: 1.125rem;
+  color: var(--dgrv-secondary-text);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Form styling */
+#kc-form {
+  margin-top: 2rem;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dgrv-primary-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  height: 3rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--dgrv-primary-text);
+  background: var(--dgrv-input-bg);
+  border: 2px solid var(--dgrv-border);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--dgrv-accent-blue);
+  box-shadow: 0 0 0 3px var(--dgrv-focus-ring), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+  color: #9CA3AF;
+}
+
+/* Error states */
+input[aria-invalid="true"],
+.has-error input {
+  border-color: var(--dgrv-error);
+}
+
+.error-message {
+  font-size: 0.875rem;
+  color: var(--dgrv-error);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  background: var(--dgrv-accent-blue);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #1D4ED8;
+  transform: scale(1.02);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--dgrv-focus-ring);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--dgrv-link-color);
+  text-decoration: underline;
+}
+
+.btn-secondary:hover {
+  background: rgba(239, 246, 255, 0.5);
+}
+
+/* Links */
+a {
+  color: var(--dgrv-link-color);
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #1D4ED8;
+}
+
+/* Form options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+/* Checkboxes */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--dgrv-accent-blue);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 24px;
+  background: var(--dgrv-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.theme-toggle.active {
+  background: var(--dgrv-accent-blue);
+}
+
+.theme-toggle-slider {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.theme-toggle.active .theme-toggle-slider {
+  transform: translateX(24px);
+}
+
+/* Alerts */
+.alert {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.alert-error {
+  background: #FEF2F2;
+  border: 1px solid var(--dgrv-error);
+  color: #DC2626;
+}
+
+.alert-success {
+  background: #F0FDF4;
+  border: 1px solid var(--dgrv-success);
+  color: #166534;
+}
+
+.alert-warning {
+  background: #FFFBEB;
+  border: 1px solid #F59E0B;
+  color: #92400E;
+}
+
+.alert-info {
+  background: #EFF6FF;
+  border: 1px solid #3B82F6;
+  color: #1E40AF;
+}
+
+/* Social providers */
+.social-providers {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.social-providers h4 {
+  font-size: 1rem;
+  color: var(--dgrv-secondary-text);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.social-provider-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+  background: var(--dgrv-input-bg);
+  border: 2px solid var(--dgrv-border);
+  border-radius: 0.5rem;
+  color: var(--dgrv-primary-text);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.social-provider-btn:hover {
+  border-color: var(--dgrv-accent-blue);
+  transform: scale(1.02);
+}
+
+.social-provider-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus management */
+*:focus {
+  outline: 2px solid var(--dgrv-accent-blue);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  #kc-content {
+    padding: 1.5rem;
+  }
+  
+  #kc-page-title {
+    font-size: 1.75rem;
+  }
+  
+  .brand-name {
+    font-size: 1.25rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    height: 2.75rem;
+  }
+  
+  .btn {
+    height: 2.75rem;
+  }
+}
+
+/* Legacy support for existing classes */
+.app-card {
+  @apply sm:mt-4 sm:mx-auto sm:w-full sm:max-w-[520px] px-4 sm:px-0;
+}
+
+.form-long {
+  label {
+    @apply cursor-pointer;
+  }
+  @apply flex flex-col items-start justify-between mb-4;
+}
+
+#kc-form-buttons {
+  @apply mt-2;
+}
+
+#kc-current-locale-link {
+  svg {
+    @apply w-4 h-4;
+  }
+  @apply btn btn-sm btn-outline;
+}
+
+.app-wrapper {
+  label, .subtitle {
+    color: initial;
+    span {
+      @apply text-error;
+    }
+  }
+  &.waff {
+    @apply flex-col items-start;
+  }
+  @apply flex items-center text-error;
+}
+
+.app-title {
+  @apply text-xl font-light text-error;
+}
+
+/* Social provider icons */
+.app-social {
+  &::before {
+    position: absolute;
+    left: calc(28px / 2);
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    content: "" !important;
+    width: 28px;
+    height: 28px;
+  }
+
+  &[id*=google]::before {
+    background-image: url('../img/google.png');
+  }
+
+  &[id*=facebook]::before {
+    background-image: url('../img/facebook.png');
+  }
+
+  &[id*=github]::before {
+    background-image: url('../img/github.svg');
+  }
+
+  &[id*=vymalo]::before {
+    background-image: url('../img/vymalo.svg');
+    background-size: 33.6px;
+    height: 33.6px;
+  }
+
+  &[id*=gitlab]::before {
+    background-image: url('../img/gitlab.svg');
+    background-size: 56px;
+  }
+
+  &[id*=microsoft]::before {
+    background-image: url('../img/microsoft.svg');
+  }
+}
+
+/* Hide realm name and required fields text */
+#kc-header,
+#kc-header-wrapper h1,
+#kc-header-wrapper h2,
+#kc-header-wrapper h3,
+#kc-header-wrapper h4,
+#kc-header-wrapper h5,
+#kc-header-wrapper h6,
+.kc-header,
+.kc-header-wrapper h1,
+.kc-header-wrapper h2,
+.kc-header-wrapper h3,
+.kc-header-wrapper h4,
+.kc-header-wrapper h5,
+.kc-header-wrapper h6,
+[class*="realm"],
+[class*="required"],
+[class*="Required"],
+.required-fields,
+.required-fields-text,
+.realm-name,
+.realm-title {
+  display: none !important;
+}
+
+/* Hide any text containing "Required fields" or "sustainability-realm" */
+*:contains("Required fields"),
+*:contains("* Required fields"),
+*:contains("sustainability-realm"),
+*:contains("Sustainability Realm") {
+  display: none !important;
+}
+
+/* Ensure all links are visible and blue */
+#kc-form-options a,
+#kc-form-buttons a,
+.form-options a,
+a[href*="register"],
+a[href*="reset-credentials"],
+a[href*="forgot"],
+a[href*="signup"] {
+  color: var(--dgrv-link-color) !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+}
+
+/* Make sure form elements are well defined */
+.form-group,
+.form-control,
+.input-group {
+  border: 2px solid var(--dgrv-border);
+  border-radius: 0.5rem;
+  background: var(--dgrv-input-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove boxes from labels and make "New user?" black */
+label,
+.label,
+.form-label,
+.input-label {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Make "New user?" text black in light mode */
+a[href*="register"],
+a[href*="signup"],
+a[href*="create-account"],
+a:contains("New user"),
+a:contains("new user"),
+a:contains("Register"),
+a:contains("register"),
+#kc-form-options a,
+#kc-form-buttons a[href*="register"],
+#kc-form-buttons a[href*="signup"] {
+  color: var(--dgrv-primary-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Override for light mode specifically */
+:root a[href*="register"],
+:root a[href*="signup"],
+:root a:contains("New user"),
+:root a:contains("new user"),
+:root a:contains("Register"),
+:root a:contains("register") {
+  color: #1E293B !important;
+  font-weight: 600 !important;
+}

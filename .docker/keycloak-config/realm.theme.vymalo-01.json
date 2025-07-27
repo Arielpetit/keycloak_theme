@@ -1,0 +1,65 @@
+{
+  "id": "vymalo-01",
+  "realm": "vymalo-01",
+  "displayName": "Vymalo TW 01",
+  "displayNameHtml": "<b>Vymalo</b> TW 01",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": true,
+  "rememberMe": true,
+  "loginWithEmailAllowed": true,
+  "resetPasswordAllowed": true,
+  "enabled": true,
+  "loginTheme": "vymalo-01",
+  "identityProviders": [
+    {
+      "alias": "facebook",
+      "displayName": "Facebook",
+      "providerId": "facebook",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    },
+    {
+      "alias": "gitlab",
+      "displayName": "Gitlab",
+      "providerId": "gitlab",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    },
+    {
+      "alias": "google",
+      "displayName": "Google",
+      "providerId": "google",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    }
+  ],
+  "users": [
+    {
+      "email": "${KEYCLOAK_ADMIN}@admin.com",
+      "username": "${KEYCLOAK_ADMIN}",
+      "firstName": "DevOps",
+      "lastName": "SRE",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "${KEYCLOAK_ADMIN_PASSWORD}"
+        }
+      ]
+    }
+  ]
+}
