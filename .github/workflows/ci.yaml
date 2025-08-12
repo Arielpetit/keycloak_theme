@@ -13,7 +13,7 @@ jobs:
     outputs:
       package_version: ${{ steps.package_version.outputs.to_version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout code
 
       - id: package_version
@@ -34,7 +34,7 @@ jobs:
       run:
         working-directory: ./themes/${{matrix.chart}}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout code
 
       - name: Enable Corepack
